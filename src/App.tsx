@@ -72,8 +72,20 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-gray-800">
-        <div className="container mx-auto px-6 text-center">
+      <section 
+        id="home" 
+        className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-black via-gray-900 to-gray-800"
+        style={{
+          backgroundImage: 'url(/TemaDeFundo-Home.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Overlay para criar o efeito de distância */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-gray-900/70 to-gray-800/60"></div>
+        
+        <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-blue-500 bg-clip-text text-transparent">
               Desenvolvedor Web
@@ -97,42 +109,41 @@ function App() {
       {/* About Section */}
       <section id="sobre" className="py-20 bg-gray-900">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
+          <div className="max-w-6xl mx-auto ">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-white">
               Sobre <span className="text-blue-500">Mim</span>
             </h2>
             
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="w-48 h-48 mx-auto md:mx-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mb-8">
-                  <div className="w-44 h-44 bg-gray-800 rounded-full flex items-center justify-center">
-                    <Code size={80} className="text-blue-500" />
-                  </div>
-                </div>
+            <div className="grid md:grid-cols-2 gap-5 items-center mr-10 ">
+              <div className="flex justify-center items-center ">
+                <img
+                  src="/Foto.jpg"
+                  alt="Foto do desenvolvedor"
+                  className="w-72 h-72 object-cover rounded-full shadow-lg"
+                />
               </div>
               
               <div>
-                <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                  Sou um desenvolvedor web apaixonado por criar soluções digitais inovadoras e funcionais. 
-                  Com experiência em tecnologias modernas, transformo conceitos em aplicações web robustas e intuitivas.
+                <p className="text-lg text-gray-300 mb-3 leading-relaxed">
+                  Sou desenvolvedor web com foco em Front-end e conhecimentos em integração com back-end e banco de dados. Tenho experiência com criação de landing pages otimizadas, 
+                  responsivas e voltadas para conversão, além de interfaces que proporcionam uma boa experiência para o usuário.
                 </p>
-                <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                  Minha jornada no desenvolvimento web é movida pela curiosidade constante e pelo desejo de 
-                  aprender novas tecnologias para entregar as melhores experiências aos usuários.
+                <p className="text-lg text-gray-300 mb-4 leading-relaxed">
+                  Se você busca alguém comprometido com entregas de qualidade, que escuta bem suas necessidades e transforma ideias em soluções funcionais e bonitas, estou à disposição!
                 </p>
                 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {[
-                    { name: 'Frontend', icon: <Globe size={24} /> },
-                    { name: 'Backend', icon: <Code size={24} /> },
-                    { name: 'Design', icon: <Palette size={24} /> },
-                    { name: 'Mobile', icon: <Smartphone size={24} /> }
+                    { name: 'Frontend', icon: <Globe size={20} /> },
+                    { name: 'Backend', icon: <Code size={20} /> },
+                    { name: 'Design', icon: <Palette size={20} /> },
+                    { name: 'Mobile', icon: <Smartphone size={20} /> }
                   ].map((skill) => (
-                    <div key={skill.name} className="bg-gray-800 p-4 rounded-lg text-center hover:bg-gray-700 transition-colors duration-300">
-                      <div className="text-blue-500 mb-2 flex justify-center">
+                    <div key={skill.name} className="bg-gray-800 p-3 rounded-lg text-center hover:bg-gray-700 transition-colors duration-300">
+                      <div className="text-blue-500 mb-1 flex justify-center">
                         {skill.icon}
                       </div>
-                      <p className="text-sm font-medium">{skill.name}</p>
+                      <p className="text-xs font-medium">{skill.name}</p>
                     </div>
                   ))}
                 </div>
@@ -140,22 +151,101 @@ function App() {
             </div>
 
             {/* Technologies */}
-            <div className="mt-16">
-              <h3 className="text-2xl font-bold text-center mb-8 text-white">
+            <div className="mt-20">
+              <h3 className="text-2xl font-bold text-center mb-12 text-white">
                 Tecnologias que <span className="text-blue-500">Domino</span>
               </h3>
-              <div className="flex flex-wrap justify-center gap-4">
-                {[
-                  'HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Next.js', 
-                  'Node.js', 'Python', 'MongoDB', 'PostgreSQL', 'Git', 'AWS'
-                ].map((tech) => (
-                  <span
-                    key={tech}
-                    className="bg-gray-800 text-blue-400 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-700 transition-colors duration-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Frontend */}
+                <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300">
+                  <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
+                    <Globe size={20} />
+                    Frontend
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {['HTML5', 'CSS3', 'JavaScript', 'TailwindCSS', 'React'].map((tech) => (
+                      <span
+                        key={tech}
+                        className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Design */}
+                <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300">
+                  <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
+                    <Palette size={20} />
+                    Design
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {['Canvas','Figma', 'UI/UX', 'Layout Responsivo'].map((tech) => (
+                      <span
+                        key={tech}
+                        className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Backend */}
+                <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300">
+                  <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
+                    <Code size={20} />
+                    Backend
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {['Node.js', 'Express.js', 'MySQL', 'Banco de Dados'].map((tech) => (
+                      <span
+                        key={tech}
+                        className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Integrações */}
+                <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300">
+                  <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
+                    <ExternalLink size={20} />
+                    Integrações
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {['API REST', 'JSON', 'Axios'].map((tech) => (
+                      <span
+                        key={tech}
+                        className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Deploy e Versionamento */}
+                <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300 md:col-span-2 lg:col-span-1">
+                  <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
+                    <Github size={20} />
+                    Deploy & Versionamento
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {['Git', 'GitHub', 'Vercel', 'Netlify'].map((tech) => (
+                      <span
+                        key={tech}
+                        className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
