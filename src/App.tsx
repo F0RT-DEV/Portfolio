@@ -404,13 +404,13 @@ function App() {
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                       className="w-full h-full object-contain bg-gray-800 transition-transform duration-500 group-hover:scale-105"
                         onError={(e) => {
                           // Fallback para imagem padrão caso não encontre a imagem
                           (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600';
                         }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       
                       {/* Badge de Categoria */}
                       <div className="absolute top-3 right-3">
