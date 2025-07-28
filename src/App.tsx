@@ -397,55 +397,55 @@ function App() {
                 return (
                   <div
                     key={index}
-                    className={`bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 shadow-xl ${colors.shadow} border ${colors.border} ${colors.hoverBorder} hover:transform hover:scale-[1.02] group`}
+                    className={`bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 shadow-xl ${colors.shadow} border ${colors.border} ${colors.hoverBorder} hover:transform hover:scale-[1.02] group min-h-[500px]`}
                   >
                     {/* Imagem do Projeto */}
-                    <div className="relative h-48 overflow-hidden rounded-t-2xl">
+                    <div className="relative h-64 overflow-hidden rounded-t-2xl">
                       <img
                         src={project.image}
                         alt={project.title}
-                       className="w-full h-full object-contain bg-gray-800 transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         onError={(e) => {
                           // Fallback para imagem padrão caso não encontre a imagem
                           (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600';
                         }}
                       />
-                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       
                       {/* Badge de Categoria */}
-                      <div className="absolute top-3 right-3">
-                        <span className={`bg-gray-900/90 backdrop-blur-sm ${colors.accent} px-2 py-1 rounded-full text-xs font-medium border ${colors.border}`}>
+                      <div className="absolute top-4 right-4">
+                        <span className={`bg-gray-900/90 backdrop-blur-sm ${colors.accent} px-3 py-1.5 rounded-full text-xs font-medium border ${colors.border}`}>
                           {project.type}
                         </span>
                       </div>
                     </div>
 
                     {/* Conteúdo do Card */}
-                    <div className="p-4 space-y-3">
+                    <div className="p-6 space-y-4 flex-1 flex flex-col">
                       {/* Cliente */}
-                      <div className="flex items-center gap-2 text-xs text-gray-400">
+                      <div className="flex items-center gap-2 text-sm text-gray-400">
                         <span className="font-medium">Cliente:</span>
                         <span>{project.client}</span>
                       </div>
 
                       {/* Título */}
-                      <h3 className="text-lg font-bold text-white group-hover:text-blue-300 transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300">
                         {project.title}
                       </h3>
 
                       {/* Descrição */}
-                      <p className="text-gray-300 leading-relaxed text-sm line-clamp-3">
+                      <p className="text-gray-300 leading-relaxed text-sm flex-1">
                         {project.description}
                       </p>
 
                       {/* Tecnologias */}
-                      <div className="space-y-1">
-                        <p className="text-xs font-medium text-gray-400">Tecnologias:</p>
+                      <div className="space-y-2">
+                        <p className="text-sm font-medium text-gray-400">Tecnologias:</p>
                         <div className="flex flex-wrap gap-2">
                           {project.technologies.map((tech) => (
                             <span
                               key={tech}
-                              className={`bg-gray-800/50 ${colors.accent} px-2 py-1 rounded-md text-xs font-medium border ${colors.border} hover:bg-gray-700/50 transition-colors duration-300`}
+                              className={`bg-gray-800/50 ${colors.accent} px-3 py-1.5 rounded-md text-xs font-medium border ${colors.border} hover:bg-gray-700/50 transition-colors duration-300`}
                             >
                               {tech}
                             </span>
@@ -454,17 +454,17 @@ function App() {
                       </div>
 
                       {/* Links de Ação */}
-                      <div className="flex gap-3 pt-3 border-t border-gray-700/50">
+                      <div className="flex gap-4 pt-4 border-t border-gray-700/50 mt-auto">
                         <a
                           href={project.github}
-                          className={`flex items-center gap-2 ${colors.accent} hover:text-white transition-colors duration-300 text-sm font-medium`}
+                          className={`flex items-center gap-2 ${colors.accent} hover:text-white transition-colors duration-300 text-sm font-medium hover:scale-105 transform`}
                         >
                           <Github size={16} />
                           <span>GitHub</span>
                         </a>
                         <a
                           href={project.demo}
-                          className={`flex items-center gap-2 ${colors.accent} hover:text-white transition-colors duration-300 text-sm font-medium`}
+                          className={`flex items-center gap-2 ${colors.accent} hover:text-white transition-colors duration-300 text-sm font-medium hover:scale-105 transform`}
                         >
                           <ExternalLink size={16} />
                           <span>Ver Projeto</span>
