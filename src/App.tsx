@@ -319,69 +319,174 @@ function App() {
       {/* Projects Section */}
       <section id="projetos" className="py-20 bg-black">
         <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
               Meus <span className="text-blue-500">Projetos</span>
             </h2>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
-                  title: 'E-commerce Platform',
-                  description: 'Plataforma completa de e-commerce com carrinho, pagamentos e dashboard administrativo.',
-                  technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-                  image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600'
+                  title: 'Plataforma Didática para Curso Técnico',
+                  description: 'Front-end responsivo com foco em UX, animações suaves e integração com APIs e banco de dados. Projeto desenvolvido para fins educacionais em parceria com professor de ADS.',
+                  technologies: ['React', 'CSS3', 'Responsivo', 'Animações'],
+                  image: '/PlataformaDidatica.png',
+                  category: 'educacional',
+                  type: '📘 Uso Educacional',
+                  client: 'Professor de Análise e Desenvolvimento de Sistemas',
+                  github: '#',
+                  demo: '#'
                 },
                 {
-                  title: 'Task Management App',
-                  description: 'Aplicação de gerenciamento de tarefas com drag-and-drop e colaboração em tempo real.',
-                  technologies: ['TypeScript', 'React', 'Socket.io', 'PostgreSQL'],
-                  image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600'
+                  title: 'Sistema de Gestão Freelance',
+                  description: 'Plataforma completa para gestão de projetos freelance com dashboard administrativo, controle de clientes e faturamento automatizado.',
+                  technologies: ['React', 'Node.js', 'MongoDB', 'TypeScript'],
+                  image: '/projeto-freelance.png',
+                  category: 'freelance',
+                  type: '💼 Projeto Freelance',
+                  client: 'Cliente Corporativo',
+                  github: '#',
+                  demo: '#'
                 },
                 {
-                  title: 'Portfolio Website',
-                  description: 'Website responsivo de portfólio com animações suaves e design moderno.',
-                  technologies: ['React', 'Tailwind CSS', 'Framer Motion'],
-                  image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600'
+                  title: 'Portfolio Interativo',
+                  description: 'Website responsivo de portfólio com animações suaves, design moderno e otimização para SEO. Desenvolvimento pessoal para apresentar projetos.',
+                  technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'Vite'],
+                  image: '/projeto-portfolio.png',
+                  category: 'pessoal',
+                  type: '💡 Projeto Pessoal',
+                  client: 'Desenvolvimento Próprio',
+                  github: '#',
+                  demo: '#'
+                },
+                {
+                  title: 'E-commerce Moderno',
+                  description: 'Plataforma de e-commerce completa com carrinho de compras, sistema de pagamento integrado e painel administrativo para gestão de produtos.',
+                  technologies: ['Next.js', 'Stripe', 'PostgreSQL', 'Prisma'],
+                  image: '/projeto-ecommerce.png',
+                  category: 'freelance',
+                  type: '✅ Projeto Real',
+                  client: 'Loja Virtual',
+                  github: '#',
+                  demo: '#'
                 }
-              ].map((project, index) => (
-                <div
-                  key={index}
-                  className="bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
-                >
-                  <div className="h-48 bg-gradient-to-r from-blue-500 to-purple-600 p-1">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover rounded-t-lg"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3 text-white">{project.title}</h3>
-                    <p className="text-gray-300 mb-4 text-sm leading-relaxed">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="bg-blue-600/20 text-blue-400 px-2 py-1 rounded text-xs font-medium"
-                        >
-                          {tech}
+              ].map((project, index) => {
+                const categoryColors = {
+                  educacional: {
+                    border: 'border-blue-500/30',
+                    hoverBorder: 'hover:border-blue-500/60',
+                    shadow: 'hover:shadow-blue-500/20',
+                    accent: 'text-blue-400'
+                  },
+                  freelance: {
+                    border: 'border-green-500/30',
+                    hoverBorder: 'hover:border-green-500/60',
+                    shadow: 'hover:shadow-green-500/20',
+                    accent: 'text-green-400'
+                  },
+                  pessoal: {
+                    border: 'border-purple-500/30',
+                    hoverBorder: 'hover:border-purple-500/60',
+                    shadow: 'hover:shadow-purple-500/20',
+                    accent: 'text-purple-400'
+                  }
+                };
+
+                const colors = categoryColors[project.category as keyof typeof categoryColors];
+
+                return (
+                  <div
+                    key={index}
+                    className={`bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 shadow-xl ${colors.shadow} border ${colors.border} ${colors.hoverBorder} hover:transform hover:scale-[1.02] group`}
+                  >
+                    {/* Imagem do Projeto */}
+                    <div className="relative h-68 overflow-hidden rounded-t-2xl">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onError={(e) => {
+                          // Fallback para imagem padrão caso não encontre a imagem
+                          (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      {/* Badge de Categoria */}
+                      <div className="absolute top-3 right-3">
+                        <span className={`bg-gray-900/90 backdrop-blur-sm ${colors.accent} px-2 py-1 rounded-full text-xs font-medium border ${colors.border}`}>
+                          {project.type}
                         </span>
-                      ))}
+                      </div>
                     </div>
-                    <div className="flex gap-4">
-                      <button className="flex items-center gap-2 text-gray-300 hover:text-blue-500 transition-colors duration-300">
-                        <Github size={16} />
-                        <span className="text-sm">GitHub</span>
-                      </button>
-                      <button className="flex items-center gap-2 text-gray-300 hover:text-blue-500 transition-colors duration-300">
-                        <ExternalLink size={16} />
-                        <span className="text-sm">Demo</span>
-                      </button>
+
+                    {/* Conteúdo do Card */}
+                    <div className="p-6 space-y-4">
+                      {/* Cliente */}
+                      <div className="flex items-center gap-2 text-sm text-gray-400">
+                        <span className="font-medium">Cliente:</span>
+                        <span>{project.client}</span>
+                      </div>
+
+                      {/* Título */}
+                      <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300">
+                        {project.title}
+                      </h3>
+
+                      {/* Descrição */}
+                      <p className="text-gray-300 leading-relaxed text-sm">
+                        {project.description}
+                      </p>
+
+                      {/* Tecnologias */}
+                      <div className="space-y-2">
+                        <p className="text-sm font-medium text-gray-400">Tecnologias:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.map((tech) => (
+                            <span
+                              key={tech}
+                              className={`bg-gray-800/50 ${colors.accent} px-3 py-1 rounded-md text-xs font-medium border ${colors.border} hover:bg-gray-700/50 transition-colors duration-300`}
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Links de Ação */}
+                      <div className="flex gap-3 pt-4 border-t border-gray-700/50">
+                        <a
+                          href={project.github}
+                          className={`flex items-center gap-2 ${colors.accent} hover:text-white transition-colors duration-300 text-sm font-medium`}
+                        >
+                          <Github size={16} />
+                          <span>GitHub</span>
+                        </a>
+                        <a
+                          href={project.demo}
+                          className={`flex items-center gap-2 ${colors.accent} hover:text-white transition-colors duration-300 text-sm font-medium`}
+                        >
+                          <ExternalLink size={16} />
+                          <span>Ver Projeto</span>
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
+            </div>
+
+            {/* Call to Action */}
+            <div className="text-center mt-16">
+              <p className="text-gray-400 mb-6">
+                Interessado em trabalhar comigo? Vamos conversar sobre seu projeto!
+              </p>
+              <button
+                onClick={() => scrollToSection('contato')}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25"
+              >
+                Iniciar Conversa
+              </button>
             </div>
           </div>
         </div>
