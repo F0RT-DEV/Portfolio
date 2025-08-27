@@ -156,12 +156,8 @@ function App() {
     </div>
   </div>
   
-  {/* Scroll indicator - Responsivo para mobile */}
-  <div className="absolute left-1/2 transform -translate-x-1/2 animate-bounce"
-    style={{
-      bottom: 'max(2rem, calc(8vh + 64px))' // 64px para garantir espaço dos botões em mobile
-    }}
-  >
+  {/* Scroll indicator - Movido para posição absoluta no final da seção */}
+  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
     <div className="w-6 h-10 border-2 border-blue-400/50 rounded-full flex justify-center">
       <div className="w-1 h-3 bg-blue-400 rounded-full mt-2 animate-pulse"></div>
     </div>
@@ -514,22 +510,22 @@ function App() {
                 
                 <div className="space-y-4">
                   <a
-                    href="mailto:contato@exemplo.com"
+                    href="dougrasfb1@gmail.com"
                     className="flex items-center gap-3 text-gray-300 hover:text-blue-500 transition-colors duration-300"
                   >
                     <Mail size={20} />
-                    <span>contato@exemplo.com</span>
+                    <span>dougrasfb1@gmail.com</span>
                   </a>
                   
                   <div className="flex gap-6 mt-8">
                     <a
-                      href="https://github.com"
+                      href="https://github.com/F0RT-DEV"
                       className="text-gray-300 hover:text-blue-500 transition-colors duration-300"
                     >
                       <Github size={24} />
                     </a>
                     <a
-                      href="https://linkedin.com"
+                      href="https://www.linkedin.com/in/douglas-ferreira-borges-3649a425a/"
                       className="text-gray-300 hover:text-blue-500 transition-colors duration-300"
                     >
                       <Linkedin size={24} />
