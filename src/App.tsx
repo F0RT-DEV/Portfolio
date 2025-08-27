@@ -157,7 +157,7 @@ function App() {
   </div>
   
   {/* Scroll indicator - Responsivo para mobile */}
-  <div className="absolute left-1/2 transform -translate-x-1/2 animate-bounce"
+  <div className="absolute left-1/2 transform -translate-x-1/2 animate-bounce z-30"
     style={{
       bottom: 'max(2rem, calc(8vh + 64px))' // 64px para garantir espaço dos botões em mobile
     }}
