@@ -27,7 +27,7 @@ function App() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="text-2xl font-bold text-white">
-              <span className="text-blue-500">Dev</span>Portfolio
+              <span className="text-blue-500">Jovem</span>Dev
             </div>
             
             {/* Desktop Menu */}
@@ -156,8 +156,12 @@ function App() {
     </div>
   </div>
   
-  {/* Scroll indicator - Movido para posição absoluta no final da seção */}
-  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+  {/* Scroll indicator - Responsivo para mobile */}
+  <div className="absolute left-1/2 transform -translate-x-1/2 animate-bounce"
+    style={{
+      bottom: 'max(2rem, calc(8vh + 64px))' // 64px para garantir espaço dos botões em mobile
+    }}
+  >
     <div className="w-6 h-10 border-2 border-blue-400/50 rounded-full flex justify-center">
       <div className="w-1 h-3 bg-blue-400 rounded-full mt-2 animate-pulse"></div>
     </div>
@@ -217,7 +221,7 @@ function App() {
             {/* Technologies */}
             <div>
               <h3 className="text-2xl font-bold text-center mb-12 text-white">
-                Tecnologias que <span className="text-blue-500">Domino</span>
+                Tecnologias que possuo <span className="text-blue-500">Conhecimento</span>
               </h3>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -264,7 +268,7 @@ function App() {
                     Backend
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {['Node.js', 'Express.js', 'MySQL', 'Banco de Dados'].map((tech) => (
+                    {['Node.js', 'Express.js', 'MySQL', 'Banco de Dados','Firebase'].map((tech) => (
                       <span
                         key={tech}
                         className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300"
@@ -300,7 +304,7 @@ function App() {
                     Deploy & Versionamento
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {['Git', 'GitHub', 'Vercel', 'Netlify'].map((tech) => (
+                    {['Git', 'GitHub', 'Render', 'Netlify'].map((tech) => (
                       <span
                         key={tech}
                         className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300"
@@ -320,7 +324,7 @@ function App() {
       <section id="projetos" className="py-20 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-white">
               Meus <span className="text-blue-500">Projetos</span>
             </h2>
             
@@ -328,35 +332,35 @@ function App() {
               {[
                 {
                   title: 'Plataforma Didática para Curso Técnico',
-                  description: 'Front-end responsivo com foco em UX, animações suaves e integração com APIs e banco de dados. Projeto desenvolvido para fins educacionais em parceria com professor de ADS.',
-                  technologies: ['React', 'CSS3', 'Responsivo', 'Animações'],
+                  description: 'Front-end responsivo com foco em UX, animações suaves. Projeto desenvolvido para fins educacionais em parceria com professor de ADS.',
+                  technologies: ['ReactJS', 'CSS3', 'Responsivo', 'Animações'],
                   image: '/PlataformaDidatica.png',
                   category: 'educacional',
                   type: '📘 Uso Educacional',
                   client: 'Professor de Análise e Desenvolvimento de Sistemas',
-                  github: '#',
-                  demo: '#'
+                  github: 'https://github.com/F0RT-DEV/FindesProjeto.git',
+                  demo: 'https://inquisitive-vacherin-43050a.netlify.app/'
                 },
                 {
-                  title: 'Sistema de Gestão Freelance',
-                  description: 'Plataforma completa para gestão de projetos freelance com dashboard administrativo, controle de clientes e faturamento automatizado.',
-                  technologies: ['React', 'Node.js', 'MongoDB', 'TypeScript'],
-                  image: '/projeto-freelance.png',
-                  category: 'freelance',
-                  type: '💼 Projeto Freelance',
-                  client: 'Cliente Corporativo',
-                  github: '#',
-                  demo: '#'
+                  title: 'Plataforma de Serviços Técnicos',
+                  description: 'Plataforma de serviços técnicos onde atuei como Líder Front-end no desenvolvimento de uma plataforma web voltada para educação, saúde e assistência social no estado do Amapá.',
+                  technologies: ['React', 'JavaScript', 'CSS3', 'Node.js', 'Firebase'],
+                  image: '/PlataformaGovernamental.png',
+                  category: 'educacional',
+                  type: '📘 Uso Educacional',
+                  client: 'Projeto de Finalização do Curso',
+                    github: 'https://github.com/F0RT-DEV/SistemaIntegrado.git',
+                    demo: 'https://celadon-cocada-11fd08.netlify.app/'
                 },
                 {
                   title: 'Portfolio Interativo',
                   description: 'Website responsivo de portfólio com animações suaves, design moderno e otimização para SEO. Desenvolvimento pessoal para apresentar projetos.',
-                  technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'Vite'],
-                  image: '/projeto-portfolio.png',
+                  technologies: ['React', 'Tailwind CSS', 'TypeScript', 'Vite'],
+                  image: '/DesenvolvedorWeb.png',
                   category: 'pessoal',
                   type: '💡 Projeto Pessoal',
                   client: 'Desenvolvimento Próprio',
-                  github: '#',
+                  github: 'https://github.com/F0RT-DEV/Portfolio.git',
                   demo: '#'
                 },
                 {
@@ -365,7 +369,7 @@ function App() {
                   technologies: ['Next.js', 'Stripe', 'PostgreSQL', 'Prisma'],
                   image: '/projeto-ecommerce.png',
                   category: 'freelance',
-                  type: '✅ Projeto Real',
+                  type: '💼 Projeto Freelance',
                   client: 'Loja Virtual',
                   github: '#',
                   demo: '#'
@@ -400,7 +404,7 @@ function App() {
                     className={`bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 shadow-xl ${colors.shadow} border ${colors.border} ${colors.hoverBorder} hover:transform hover:scale-[1.02] group min-h-[500px]`}
                   >
                     {/* Imagem do Projeto */}
-                    <div className="relative h-64 overflow-hidden rounded-t-2xl">
+                    <div className="relative h-82 overflow-hidden rounded-t-2xl">
                       <img
                         src={project.image}
                         alt={project.title}
@@ -421,31 +425,31 @@ function App() {
                     </div>
 
                     {/* Conteúdo do Card */}
-                    <div className="p-6 space-y-4 flex-1 flex flex-col">
+                    <div className="p-4 space-y-3 flex-1 flex flex-col">
                       {/* Cliente */}
-                      <div className="flex items-center gap-2 text-sm text-gray-400">
+                      <div className="flex items-center gap-2 text-xs text-gray-400">
                         <span className="font-medium">Cliente:</span>
                         <span>{project.client}</span>
                       </div>
 
                       {/* Título */}
-                      <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300">
+                      <h3 className="text-lg font-bold text-white group-hover:text-blue-300 transition-colors duration-300">
                         {project.title}
                       </h3>
 
                       {/* Descrição */}
-                      <p className="text-gray-300 leading-relaxed text-sm flex-1">
+                      <p className="text-gray-300 leading-snug text-xs flex-1">
                         {project.description}
                       </p>
 
                       {/* Tecnologias */}
                       <div className="space-y-2">
-                        <p className="text-sm font-medium text-gray-400">Tecnologias:</p>
-                        <div className="flex flex-wrap gap-2">
+                        <p className="text-xs font-medium text-gray-400">Tecnologias:</p>
+                        <div className="flex flex-wrap gap-1.5">
                           {project.technologies.map((tech) => (
                             <span
                               key={tech}
-                              className={`bg-gray-800/50 ${colors.accent} px-3 py-1.5 rounded-md text-xs font-medium border ${colors.border} hover:bg-gray-700/50 transition-colors duration-300`}
+                              className={`bg-gray-800/50 ${colors.accent} px-2 py-1 rounded-md text-xs font-medium border ${colors.border} hover:bg-gray-700/50 transition-colors duration-300`}
                             >
                               {tech}
                             </span>
@@ -454,7 +458,7 @@ function App() {
                       </div>
 
                       {/* Links de Ação */}
-                      <div className="flex gap-4 pt-4 border-t border-gray-700/50 mt-auto">
+                      <div className="flex gap-4 pt-3 border-t border-gray-700/50 mt-auto">
                         <a
                           href={project.github}
                           className={`flex items-center gap-2 ${colors.accent} hover:text-white transition-colors duration-300 text-sm font-medium hover:scale-105 transform`}
