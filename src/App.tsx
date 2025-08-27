@@ -85,19 +85,19 @@ function App() {
   {/* Elementos de fundo animados */}
   <div className="absolute inset-0 z-0">
     {/* Círculos flutuantes */}
-    <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
-    <div className="absolute top-40 right-20 w-24 h-24 bg-blue-400/15 rounded-full blur-lg animate-bounce" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
-    <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-blue-600/8 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-    <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-blue-300/12 rounded-full blur-xl animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '4s' }}></div>
+    <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-pulse z-1"></div>
+    <div className="absolute top-40 right-20 w-24 h-24 bg-blue-400/15 rounded-full blur-lg animate-bounce z-1" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
+    <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-blue-600/8 rounded-full blur-2xl animate-pulse z-1" style={{ animationDelay: '2s' }}></div>
+    <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-blue-300/12 rounded-full blur-xl animate-bounce z-1" style={{ animationDelay: '0.5s', animationDuration: '4s' }}></div>
     
     {/* Linhas geométricas */}
-    <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
+    <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent z-1"></div>
     {/* <div className="absolute bottom-4/1 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/20 to-transparent"></div> */}
     
     {/* Partículas flutuantes */}
-    <div className="absolute top-1/3 left-1/5 w-2 h-2 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
-    <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-blue-300 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
-    <div className="absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-blue-500 rounded-full animate-ping" style={{ animationDelay: '0.8s' }}></div>
+    <div className="absolute top-1/3 left-1/5 w-2 h-2 bg-blue-400 rounded-full animate-ping z-1" style={{ animationDelay: '1.5s' }}></div>
+    <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-blue-300 rounded-full animate-ping z-1" style={{ animationDelay: '3s' }}></div>
+    <div className="absolute top-1/2 left-3/4 sm:left-2/3 w-1.5 h-1.5 bg-blue-500 rounded-full animate-ping z-1" style={{ animationDelay: '0.8s' }}></div>
   </div>
   
   {/* Overlay para criar o efeito de distância */}
