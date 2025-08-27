@@ -141,14 +141,14 @@ function App() {
       <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up relative z-50" style={{ animationDelay: '1.2s' }}>
         <button
           onClick={() => scrollToSection('projetos')}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 relative overflow-hidden group"
+          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 relative overflow-hidden group z-50"
         >
           <span className="relative z-10">Ver Projetos</span>
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </button>
         <button
           onClick={() => scrollToSection('contato')}
-          className="border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
+          className="border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 backdrop-blur-sm relative z-50"
         >
           Entrar em Contato
         </button>
@@ -157,7 +157,7 @@ function App() {
   </div>
   
   {/* Scroll indicator - Responsivo para mobile */}
-  <div className="absolute left-1/2 transform -translate-x-1/2 animate-bounce z-30"
+  <div className="absolute left-1/2 transform -translate-x-1/2 animate-bounce z-20"
     style={{
       bottom: 'max(2rem, calc(8vh + 64px))' // 64px para garantir espaço dos botões em mobile
     }}
