@@ -83,7 +83,7 @@ function App() {
   }}
 >
   {/* Elementos de fundo animados */}
-  <div className="absolute inset-0">
+  <div className="absolute inset-0 z-0">
     {/* Círculos flutuantes */}
     <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
     <div className="absolute top-40 right-20 w-24 h-24 bg-blue-400/15 rounded-full blur-lg animate-bounce" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
@@ -101,7 +101,7 @@ function App() {
   </div>
   
   {/* Overlay para criar o efeito de distância */}
-  <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-gray-900/70 to-gray-800/60"></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-gray-900/70 to-gray-800/60 z-5"></div>
   
   <div className="container mx-auto px-6 text-center relative z-10">
     <div className="max-w-4xl mx-auto mt-20">
