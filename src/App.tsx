@@ -138,7 +138,7 @@ function App() {
       </div>
       
       {/* Botões de ação - Movidos para baixo */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up relative z-40" style={{ animationDelay: '1.2s' }}>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up relative z-50" style={{ animationDelay: '1.2s' }}>
         <button
           onClick={() => scrollToSection('projetos')}
           className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 relative overflow-hidden group"
