@@ -42,7 +42,6 @@ function App() {
                 </button>
               ))}
             </nav>
-
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
@@ -228,7 +227,7 @@ function App() {
                     Frontend
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {['HTML5', 'CSS3', 'JavaScript', 'TailwindCSS', 'React'].map((tech) => (
+                    {['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'TailwindCSS', 'React'].map((tech) => (
                       <span
                         key={tech}
                         className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300"
@@ -328,19 +327,19 @@ function App() {
               {[
                 {
                   title: 'Plataforma Didática para Curso Técnico',
-                  description: 'Front-end responsivo com foco em UX, animações suaves. Projeto desenvolvido para fins educacionais em parceria com professor de ADS.',
-                  technologies: ['ReactJS', 'CSS3', 'Responsivo', 'Animações'],
+                  description: 'Front-end responsivo com foco em UX e algumas animações. Projeto desenvolvido para fins educacionais em parceria com professor de ADS.',
+                  technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Responsivo', 'Animações'],
                   image: '/PlataformaDidatica.png',
                   category: 'educacional',
                   type: '📘 Uso Educacional',
                   client: 'Professor de Análise e Desenvolvimento de Sistemas',
                   github: 'https://github.com/F0RT-DEV/FindesProjeto.git',
-                  demo: 'https://inquisitive-vacherin-43050a.netlify.app/'
+                  demo: 'https://plataforma-didatica.netlify.app/'
                 },
                 {
                   title: 'Plataforma de Serviços Técnicos',
                   description: 'Plataforma de serviços técnicos onde atuei como Líder Front-end no desenvolvimento de uma plataforma web voltada para educação, saúde e assistência social no estado do Amapá.',
-                  technologies: ['React', 'JavaScript', 'CSS3', 'Node.js', 'Firebase'],
+                  technologies: ['React', 'JavaScript', 'CSS3', 'Node.js', 'Firebase', 'Responsivo'],
                   image: '/PlataformaGovernamental.png',
                   category: 'educacional',
                   type: '📘 Uso Educacional',
@@ -351,7 +350,7 @@ function App() {
                 {
                   title: 'Portfolio Interativo',
                   description: 'Website responsivo de portfólio com animações suaves, design moderno e otimização para SEO. Desenvolvimento pessoal para apresentar projetos.',
-                  technologies: ['React', 'Tailwind CSS', 'TypeScript', 'Vite'],
+                  technologies: ['React', 'Tailwind CSS', 'Responsivo', 'TypeScript', 'Vite'],
                   image: '/DesenvolvedorWeb.png',
                   category: 'pessoal',
                   type: '💡 Projeto Pessoal',
@@ -362,7 +361,7 @@ function App() {
                 {
                   title: 'E-commerce Moderno',
                   description: 'Plataforma de e-commerce completa com carrinho de compras, sistema de pagamento integrado e painel administrativo para gestão de produtos.',
-                  technologies: ['Next.js', 'Stripe', 'PostgreSQL', 'Prisma'],
+                  technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Responsivo', 'Node.js', 'Google Cloud'],
                   image: '/projeto-ecommerce.png',
                   category: 'freelance',
                   type: '💼 Projeto Freelance',
@@ -410,8 +409,13 @@ function App() {
                           (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600';
                         }}
                       />
+                      {/* Badge EM DESENVOLVIMENTO */}
+                      {project.title === 'E-commerce Moderno' && (
+                        <div className="absolute top-6 left-6 z-20">
+                          <span className="bg-yellow-500/90 text-black font-bold px-4 py-2 rounded-full shadow-lg text-xs border-2 border-yellow-700 animate-pulse">EM DESENVOLVIMENTO</span>
+                        </div>
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      
                       {/* Badge de Categoria */}
                       <div className="absolute top-4 right-4">
                         <span className={`bg-gray-900/90 backdrop-blur-sm ${colors.accent} px-3 py-1.5 rounded-full text-xs font-medium border ${colors.border}`}>
@@ -477,7 +481,7 @@ function App() {
             </div>
 
             {/* Call to Action */}
-            <div className="text-center mt-16">
+            {/* <div className="text-center mt-16">
               <p className="text-gray-400 mb-6">
                 Interessado em trabalhar comigo? Vamos conversar sobre seu projeto!
               </p>
@@ -487,7 +491,7 @@ function App() {
               >
                 Iniciar Conversa
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -509,13 +513,13 @@ function App() {
                 </p>
                 
                 <div className="space-y-4">
-                  <a
+                  {/* <a
                     href="dougrasfb1@gmail.com"
                     className="flex items-center gap-3 text-gray-300 hover:text-blue-500 transition-colors duration-300"
                   >
                     <Mail size={20} />
                     <span>dougrasfb1@gmail.com</span>
-                  </a>
+                  </a> */}
                   
                   <div className="flex gap-6 mt-8">
                     <a
