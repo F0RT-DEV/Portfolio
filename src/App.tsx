@@ -1,8 +1,13 @@
+import emailjs from '@emailjs/browser';
 import React, { useState } from 'react';
 import { Menu, X, Github, Linkedin, Mail, ExternalLink, ArrowUp, Code, Palette, Smartphone, Globe } from 'lucide-react';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [form, setForm] = useState({ nome: '', email: '', mensagem: '' });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -345,7 +350,7 @@ function App() {
                   type: '📘 Uso Educacional',
                   client: 'Projeto de Finalização do Curso',
                     github: 'https://github.com/F0RT-DEV/SistemaIntegrado.git',
-                    demo: 'https://celadon-cocada-11fd08.netlify.app/'
+                    demo: 'https://plataforma-ap.netlify.app/'
                 },
                 {
                   title: 'Portfolio Interativo',
@@ -539,13 +544,38 @@ function App() {
               </div>
               
               <div>
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={async (e) => {
+                  e.preventDefault();
+                  setLoading(true);
+                  setSuccess('');
+                  setError('');
+                  try {
+                    await emailjs.send(
+                      'service_dgcf3uf', // Substitua pelo seu Service ID
+                      'template_o60vuhj', // Substitua pelo seu Template ID
+                      {
+                        from_name: form.nome,
+                        from_email: form.email,
+                        message: form.mensagem,
+                      },
+                      '1VYoRL1QedjvDQV5l' // Substitua pelo seu Public Key
+                    );
+                    setSuccess('Mensagem enviada com sucesso!');
+                    setForm({ nome: '', email: '', mensagem: '' });
+                  } catch (err) {
+                    setError('Erro ao enviar mensagem. Tente novamente.');
+                  }
+                  setLoading(false);
+                }}>
                   <div>
                     <label className="block text-sm font-medium mb-2 text-gray-300">Nome</label>
                     <input
                       type="text"
                       className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 text-white"
                       placeholder="Seu nome"
+                      value={form.nome}
+                      onChange={e => setForm({ ...form, nome: e.target.value })}
+                      required
                     />
                   </div>
                   <div>
@@ -554,6 +584,9 @@ function App() {
                       type="email"
                       className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 text-white"
                       placeholder="seu@email.com"
+                      value={form.email}
+                      onChange={e => setForm({ ...form, email: e.target.value })}
+                      required
                     />
                   </div>
                   <div>
@@ -562,14 +595,20 @@ function App() {
                       rows={5}
                       className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 text-white resize-none"
                       placeholder="Sua mensagem..."
+                      value={form.mensagem}
+                      onChange={e => setForm({ ...form, mensagem: e.target.value })}
+                      required
                     />
                   </div>
                   <button
                     type="submit"
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors duration-300"
+                    disabled={loading}
                   >
-                    Enviar Mensagem
+                    {loading ? 'Enviando...' : 'Enviar Mensagem'}
                   </button>
+                  {success && <p className="text-green-400 mt-2 text-center">{success}</p>}
+                  {error && <p className="text-red-400 mt-2 text-center">{error}</p>}
                 </form>
               </div>
             </div>
