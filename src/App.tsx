@@ -1,6 +1,6 @@
 import emailjs from '@emailjs/browser';
-import React, { useState } from 'react';
-import { Menu, X, Github, Linkedin, Mail, ExternalLink, ArrowUp, Code, Palette, Smartphone, Globe } from 'lucide-react';
+import { useState } from 'react';
+import { Menu, X, Github, Linkedin, ExternalLink, ArrowUp, Code, Palette, Smartphone, Globe } from 'lucide-react';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Header */}
+      
       <header className="fixed top-0 left-0 right-0 bg-black/90 backdrop-blur-md z-50 border-b border-gray-800">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
@@ -35,7 +35,6 @@ function App() {
               <span className="text-blue-500">Jovem</span>Dev
             </div>
             
-            {/* Desktop Menu */}
             <nav className="hidden md:flex space-x-8">
               {['Home', 'Sobre', 'Projetos', 'Contato'].map((item) => (
                 <button
@@ -47,7 +46,7 @@ function App() {
                 </button>
               ))}
             </nav>
-            {/* Mobile Menu Button */}
+            
             <button
               onClick={toggleMenu}
               className="md:hidden text-white hover:text-blue-500 transition-colors"
@@ -56,7 +55,7 @@ function App() {
             </button>
           </div>
 
-          {/* Mobile Menu */}
+          
           {isMenuOpen && (
             <nav className="md:hidden mt-4 pb-4 border-t border-gray-800">
               <div className="flex flex-col space-y-4 mt-4">
@@ -75,7 +74,6 @@ function App() {
         </div>
       </header>
 
-{/* Hero Section */}
 <section 
   id="home" 
   className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-gray-800"
@@ -86,30 +84,28 @@ function App() {
     backgroundRepeat: 'no-repeat'
   }}
 >
-  {/* Elementos de fundo animados */}
+  
   <div className="absolute inset-0">
-    {/* Círculos flutuantes */}
+    
     <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
     <div className="absolute top-40 right-20 w-24 h-24 bg-blue-400/15 rounded-full blur-lg animate-bounce" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
     <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-blue-600/8 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
     <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-blue-300/12 rounded-full blur-xl animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '4s' }}></div>
     
-    {/* Linhas geométricas */}
     <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
     {/* <div className="absolute bottom-4/1 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/20 to-transparent"></div> */}
     
-    {/* Partículas flutuantes */}
     <div className="absolute top-1/3 left-1/5 w-2 h-2 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
     <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-blue-300 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
     <div className="absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-blue-500 rounded-full animate-ping" style={{ animationDelay: '0.8s' }}></div>
   </div>
   
-  {/* Overlay para criar o efeito de distância */}
+  
   <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-gray-900/70 to-gray-800/60"></div>
   
   <div className="container mx-auto px-6 text-center relative z-10">
     <div className="max-w-4xl mx-auto mt-20">
-      {/* Badge de status */}
+      
       <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-500/30 rounded-full px-4 py-2 mb-10 backdrop-blur-sm">
         <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
         <span className="text-sm text-blue-200 font-medium">Disponível para projetos</span>
@@ -125,7 +121,7 @@ function App() {
         Criando experiências digitais excepcionais com tecnologias modernas e design intuitivo
       </p>
       
-      {/* Estatísticas rápidas */}
+      
       <div className="flex justify-center gap-8 mb-10 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
         <div className="text-center">
           <div className="text-2xl font-bold text-blue-400">10+</div>
@@ -141,7 +137,7 @@ function App() {
         </div>
       </div>
       
-      {/* Botões de ação - Movidos para baixo */}
+      
       <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up" style={{ animationDelay: '1.2s' }}>
         <button
           onClick={() => scrollToSection('projetos')}
@@ -160,7 +156,7 @@ function App() {
     </div>
   </div>
   
-  {/* Scroll indicator - Movido para posição absoluta no final da seção */}
+  
   <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
     <div className="w-6 h-10 border-2 border-blue-400/50 rounded-full flex justify-center">
       <div className="w-1 h-3 bg-blue-400 rounded-full mt-2 animate-pulse"></div>
@@ -168,7 +164,7 @@ function App() {
   </div>
 </section>
 
-      {/* About Section */}
+      
       <section id="sobre" className="py-20 bg-gray-900">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
@@ -199,7 +195,7 @@ function App() {
                   Se você busca alguém comprometido com entregas de qualidade, que escuta bem suas necessidades e transforma ideias em soluções funcionais e bonitas, estou à disposição!
                 </p>
                 
-                {/* Skills rápidas */}
+                
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     { name: 'Frontend', icon: <Globe size={24} />, color: 'text-blue-400' },
@@ -218,14 +214,14 @@ function App() {
               </div>
             </div>
 
-            {/* Technologies */}
+            
             <div>
               <h3 className="text-2xl font-bold text-center mb-12 text-white">
                 Tecnologias que possuo <span className="text-blue-500">Conhecimento</span>
               </h3>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* Frontend */}
+                
                 <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105">
                   <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
                     <Globe size={20} />
@@ -243,7 +239,7 @@ function App() {
                   </div>
                 </div>
 
-                {/* Design */}
+                
                 <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105">
                   <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
                     <Palette size={20} />
@@ -261,7 +257,7 @@ function App() {
                   </div>
                 </div>
 
-                {/* Backend */}
+                
                 <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105">
                   <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
                     <Code size={20} />
@@ -279,7 +275,7 @@ function App() {
                   </div>
                 </div>
 
-                {/* Integrações */}
+                
                 <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105">
                   <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
                     <ExternalLink size={20} />
@@ -297,7 +293,7 @@ function App() {
                   </div>
                 </div>
 
-                {/* Deploy e Versionamento */}
+                
                 <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105 md:col-span-2 lg:col-span-1">
                   <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
                     <Github size={20} />
@@ -320,7 +316,7 @@ function App() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      
       <section id="projetos" className="py-20 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
@@ -403,25 +399,25 @@ function App() {
                     key={index}
                     className={`bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 shadow-xl ${colors.shadow} border ${colors.border} ${colors.hoverBorder} hover:transform hover:scale-[1.02] group min-h-[500px]`}
                   >
-                    {/* Imagem do Projeto */}
+                  
                     <div className="relative h-82 overflow-hidden rounded-t-2xl">
                       <img
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         onError={(e) => {
-                          // Fallback para imagem padrão caso não encontre a imagem
+                          
                           (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600';
                         }}
                       />
-                      {/* Badge EM DESENVOLVIMENTO */}
+                      
                       {project.title === 'E-commerce Moderno' && (
                         <div className="absolute top-6 left-6 z-20">
                           <span className="bg-yellow-500/90 text-black font-bold px-4 py-2 rounded-full shadow-lg text-xs border-2 border-yellow-700 animate-pulse">EM DESENVOLVIMENTO</span>
                         </div>
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      {/* Badge de Categoria */}
+                      
                       <div className="absolute top-4 right-4">
                         <span className={`bg-gray-900/90 backdrop-blur-sm ${colors.accent} px-3 py-1.5 rounded-full text-xs font-medium border ${colors.border}`}>
                           {project.type}
@@ -429,25 +425,25 @@ function App() {
                       </div>
                     </div>
 
-                    {/* Conteúdo do Card */}
+                    
                     <div className="p-4 space-y-3 flex-1 flex flex-col">
-                      {/* Cliente */}
+                      
                       <div className="flex items-center gap-2 text-xs text-gray-400">
                         <span className="font-medium">Cliente:</span>
                         <span>{project.client}</span>
                       </div>
 
-                      {/* Título */}
+                      
                       <h3 className="text-lg font-bold text-white group-hover:text-blue-300 transition-colors duration-300">
                         {project.title}
                       </h3>
 
-                      {/* Descrição */}
+                      
                       <p className="text-gray-300 leading-snug text-xs flex-1">
                         {project.description}
                       </p>
 
-                      {/* Tecnologias */}
+                      
                       <div className="space-y-2">
                         <p className="text-xs font-medium text-gray-400">Tecnologias:</p>
                         <div className="flex flex-wrap gap-1.5">
@@ -462,7 +458,7 @@ function App() {
                         </div>
                       </div>
 
-                      {/* Links de Ação */}
+                      
                       <div className="flex gap-4 pt-3 border-t border-gray-700/50 mt-auto">
                         <a
                           href={project.github}
@@ -485,7 +481,6 @@ function App() {
               })}
             </div>
 
-            {/* Call to Action */}
             {/* <div className="text-center mt-16">
               <p className="text-gray-400 mb-6">
                 Interessado em trabalhar comigo? Vamos conversar sobre seu projeto!
@@ -501,7 +496,7 @@ function App() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      
       <section id="contato" className="py-20 bg-gray-900">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
@@ -551,14 +546,14 @@ function App() {
                   setError('');
                   try {
                     await emailjs.send(
-                      'service_dgcf3uf', // Substitua pelo seu Service ID
-                      'template_o60vuhj', // Substitua pelo seu Template ID
+                      'service_dgcf3uf', 
+                      'template_o60vuhj', 
                       {
                         from_name: form.nome,
                         from_email: form.email,
                         message: form.mensagem,
                       },
-                      '1VYoRL1QedjvDQV5l' // Substitua pelo seu Public Key
+                      '1VYoRL1QedjvDQV5l' 
                     );
                     setSuccess('Mensagem enviada com sucesso!');
                     setForm({ nome: '', email: '', mensagem: '' });
@@ -616,7 +611,7 @@ function App() {
         </div>
       </section>
 
-      {/* Footer */}
+      
       <footer className="bg-black py-8 border-t border-gray-800">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
