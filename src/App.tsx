@@ -4,6 +4,7 @@ import { Menu, X, Github, Linkedin, ExternalLink, ArrowUp, Code, Palette, Smartp
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [lang, setLang] = useState<'pt' | 'en'>('pt');
   const [form, setForm] = useState({ nome: '', email: '', mensagem: '' });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState('');
@@ -25,6 +26,75 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const translations: Record<string, any> = {
+    pt: {
+      nav: ['Home', 'Sobre', 'Projetos', 'Contato'],
+      available: 'Disponível para projetos',
+      developer: 'Desenvolvedor Web',
+      heroLine1: 'Transformando ideias em código e designs em realidade',
+      heroLine2: 'Criando experiências digitais excepcionais com tecnologias modernas e design intuitivo',
+      projectsCount: 'Projetos',
+      dedication: 'Dedicação',
+      viewProjects: 'Ver Projetos',
+      contactMe: 'Entrar em Contato',
+      aboutTitle: 'Sobre Mim',
+      aboutDesc1: 'Sou desenvolvedor web com foco em Front-end e conhecimentos em integração com back-end e banco de dados. Tenho experiência com criação de landing pages otimizadas, responsivas e voltadas para conversão, além de interfaces que proporcionam uma boa experiência para o usuário.',
+      aboutDesc2: 'Se você busca alguém comprometido com entregas de qualidade, que escuta bem suas necessidades e transforma ideias em soluções funcionais e bonitas, estou à disposição!',
+      techTitle: 'Tecnologias que possuo Conhecimento',
+      projectsTitle: 'Meus Projetos',
+      contactTitle: 'Vamos Conversar?',
+      contactSubtitle: 'Estou sempre interessado em novos projetos e oportunidades. Vamos criar algo incrível juntos!',
+      contactForm: {
+        name: 'Nome',
+        email: 'E-mail',
+        message: 'Mensagem',
+        send: 'Enviar Mensagem',
+        sending: 'Enviando...'
+      },
+      successMsg: 'Mensagem enviada com sucesso!',
+      errorMsg: 'Erro ao enviar mensagem. Tente novamente.',
+      footer: '© 2024 DevPortfolio. Todos os direitos reservados.'
+    },
+    en: {
+      nav: ['Home', 'About', 'Projects', 'Contact'],
+      available: 'Available for projects',
+      developer: 'Web Developer',
+      heroLine1: 'Turning ideas into code and designs into reality',
+      heroLine2: 'Building exceptional digital experiences with modern technologies and intuitive design',
+      projectsCount: 'Projects',
+      dedication: 'Dedication',
+      viewProjects: 'View Projects',
+      contactMe: 'Get in Touch',
+      aboutTitle: 'About Me',
+      aboutDesc1: "I'm a web developer focused on Front-end with knowledge in back-end integration and databases. I build responsive, conversion-oriented landing pages and user-friendly interfaces.",
+      aboutDesc2: 'If you are looking for someone committed to quality deliveries, who listens to your needs and turns ideas into functional and beautiful solutions, I am available!',
+      techTitle: 'Technologies I Know',
+      projectsTitle: 'My Projects',
+      contactTitle: "Let's Talk?",
+      contactSubtitle: "I'm always interested in new projects and opportunities. Let's create something amazing together!",
+      contactForm: {
+        name: 'Name',
+        email: 'E-mail',
+        message: 'Message',
+        send: 'Send Message',
+        sending: 'Sending...'
+      },
+      successMsg: 'Message sent successfully!',
+      errorMsg: 'Error sending message. Please try again.',
+      footer: '© 2024 DevPortfolio. All rights reserved.'
+    }
+  };
+
+  const t = (key: string) => {
+    const parts = key.split('.');
+    let cur: any = translations[lang];
+    for (const p of parts) {
+      if (!cur) return key;
+      cur = cur[p];
+    }
+    return cur ?? key;
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
       
@@ -36,7 +106,7 @@ function App() {
             </div>
             
             <nav className="hidden md:flex space-x-8">
-              {['Home', 'Sobre', 'Projetos', 'Contato'].map((item) => (
+              {t('nav').map((item: string) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -46,6 +116,11 @@ function App() {
                 </button>
               ))}
             </nav>
+            {/* Language buttons */}
+            <div className="hidden md:flex items-center gap-2">
+              <button onClick={() => setLang('pt')} className={`px-2 py-1 rounded ${lang === 'pt' ? 'bg-blue-600 text-white' : 'text-gray-300 hover:text-white'}`}>PT</button>
+              <button onClick={() => setLang('en')} className={`px-2 py-1 rounded ${lang === 'en' ? 'bg-blue-600 text-white' : 'text-gray-300 hover:text-white'}`}>EN</button>
+            </div>
             
             <button
               onClick={toggleMenu}
@@ -59,7 +134,7 @@ function App() {
           {isMenuOpen && (
             <nav className="md:hidden mt-4 pb-4 border-t border-gray-800">
               <div className="flex flex-col space-y-4 mt-4">
-                {['Home', 'Sobre', 'Projetos', 'Contato'].map((item) => (
+                {t('nav').map((item: string) => (
                   <button
                     key={item}
                     onClick={() => scrollToSection(item.toLowerCase())}
@@ -68,6 +143,10 @@ function App() {
                     {item}
                   </button>
                 ))}
+                <div className="flex gap-2 mt-2">
+                  <button onClick={() => setLang('pt')} className={`px-2 py-1 rounded ${lang === 'pt' ? 'bg-blue-600 text-white' : 'text-gray-300 hover:text-white'}`}>PT</button>
+                  <button onClick={() => setLang('en')} className={`px-2 py-1 rounded ${lang === 'en' ? 'bg-blue-600 text-white' : 'text-gray-300 hover:text-white'}`}>EN</button>
+                </div>
               </div>
             </nav>
           )}
@@ -108,24 +187,24 @@ function App() {
       
       <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-500/30 rounded-full px-4 py-2 mb-10 backdrop-blur-sm">
         <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-        <span className="text-sm text-blue-200 font-medium">Disponível para projetos</span>
+        <span className="text-sm text-blue-200 font-medium">{t('available')}</span>
       </div>
       
       <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-blue-500 bg-clip-text text-transparent">
-        Desenvolvedor Web
+        {t('developer')}
       </h1>
       <p className="text-xl md:text-2xl text-gray-300 mb-6 leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-        Transformando ideias em código e designs em realidade
+        {t('heroLine1')}
       </p>
       <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-        Criando experiências digitais excepcionais com tecnologias modernas e design intuitivo
+        {t('heroLine2')}
       </p>
       
       
       <div className="flex justify-center gap-8 mb-10 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
         <div className="text-center">
           <div className="text-2xl font-bold text-blue-400">10+</div>
-          <div className="text-sm text-gray-400">Projetos</div>
+          <div className="text-sm text-gray-400">{t('projectsCount')}</div>
         </div>
         {/* <div className="text-center">
           <div className="text-2xl font-bold text-blue-400">2+</div>
@@ -133,7 +212,7 @@ function App() {
         </div> */}
         <div className="text-center">
           <div className="text-2xl font-bold text-blue-400">100%</div>
-          <div className="text-sm text-gray-400">Dedicação</div>
+          <div className="text-sm text-gray-400">{t('dedication')}</div>
         </div>
       </div>
       
@@ -143,14 +222,14 @@ function App() {
           onClick={() => scrollToSection('projetos')}
           className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 relative overflow-hidden group"
         >
-          <span className="relative z-10">Ver Projetos</span>
+          <span className="relative z-10">{t('viewProjects')}</span>
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </button>
         <button
           onClick={() => scrollToSection('contato')}
           className="border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
         >
-          Entrar em Contato
+          {t('contactMe')}
         </button>
       </div>
     </div>
@@ -169,7 +248,7 @@ function App() {
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-white">
-              Sobre <span className="text-blue-500">Mim</span>
+              {t('aboutTitle').split(' ')[0]} <span className="text-blue-500">{t('aboutTitle').split(' ').slice(1).join(' ')}</span>
             </h2>
             
             <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
@@ -187,13 +266,8 @@ function App() {
                   <span className="text-sm text-blue-300 font-medium">Desenvolvedor Full Stack</span>
                 </div> */}
                 
-                <p className="text-lg text-gray-300 mb-4 leading-relaxed">
-                  Sou desenvolvedor web com foco em Front-end e conhecimentos em integração com back-end e banco de dados. Tenho experiência com criação de landing pages otimizadas, 
-                  responsivas e voltadas para conversão, além de interfaces que proporcionam uma boa experiência para o usuário.
-                </p>
-                <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                  Se você busca alguém comprometido com entregas de qualidade, que escuta bem suas necessidades e transforma ideias em soluções funcionais e bonitas, estou à disposição!
-                </p>
+                <p className="text-lg text-gray-300 mb-4 leading-relaxed">{t('aboutDesc1')}</p>
+                <p className="text-lg text-gray-300 mb-6 leading-relaxed">{t('aboutDesc2')}</p>
                 
                 
                 <div className="grid grid-cols-2 gap-4">
@@ -217,7 +291,7 @@ function App() {
             
             <div>
               <h3 className="text-2xl font-bold text-center mb-12 text-white">
-                Tecnologias que possuo <span className="text-blue-500">Conhecimento</span>
+                {t('techTitle').split(' ').slice(0, -1).join(' ')} <span className="text-blue-500">{t('techTitle').split(' ').slice(-1)}</span>
               </h3>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -501,16 +575,13 @@ function App() {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
-              Vamos <span className="text-blue-500">Conversar?</span>
+              {t('contactTitle').split(' ')[0]} <span className="text-blue-500">{t('contactTitle').split(' ').slice(1).join(' ')}</span>
             </h2>
             
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <h3 className="text-2xl font-bold mb-6 text-white">Entre em Contato</h3>
-                <p className="text-gray-300 mb-8 leading-relaxed">
-                  Estou sempre interessado em novos projetos e oportunidades. 
-                  Vamos criar algo incrível juntos!
-                </p>
+                <h3 className="text-2xl font-bold mb-6 text-white">{t('contactSubtitle')}</h3>
+                <p className="text-gray-300 mb-8 leading-relaxed">{t('contactSubtitle')}</p>
                 
                 <div className="space-y-4">
                   {/* <a
@@ -529,7 +600,7 @@ function App() {
                       <Github size={24} />
                     </a>
                     <a
-                      href="https://www.linkedin.com/in/douglas-ferreira-borges-3649a425a/"
+                      href="https://www.linkedin.com/in/douglas-f-borges/"
                       className="text-gray-300 hover:text-blue-500 transition-colors duration-300"
                     >
                       <Linkedin size={24} />
@@ -563,33 +634,33 @@ function App() {
                   setLoading(false);
                 }}>
                   <div>
-                    <label className="block text-sm font-medium mb-2 text-gray-300">Nome</label>
+                    <label className="block text-sm font-medium mb-2 text-gray-300">{t('contactForm.name')}</label>
                     <input
                       type="text"
                       className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 text-white"
-                      placeholder="Seu nome"
+                      placeholder={t('contactForm.name')}
                       value={form.nome}
                       onChange={e => setForm({ ...form, nome: e.target.value })}
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2 text-gray-300">E-mail</label>
+                    <label className="block text-sm font-medium mb-2 text-gray-300">{t('contactForm.email')}</label>
                     <input
                       type="email"
                       className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 text-white"
-                      placeholder="seu@email.com"
+                      placeholder={t('contactForm.email')}
                       value={form.email}
                       onChange={e => setForm({ ...form, email: e.target.value })}
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2 text-gray-300">Mensagem</label>
+                    <label className="block text-sm font-medium mb-2 text-gray-300">{t('contactForm.message')}</label>
                     <textarea
                       rows={5}
                       className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 text-white resize-none"
-                      placeholder="Sua mensagem..."
+                      placeholder={t('contactForm.message')}
                       value={form.mensagem}
                       onChange={e => setForm({ ...form, mensagem: e.target.value })}
                       required
@@ -600,10 +671,10 @@ function App() {
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors duration-300"
                     disabled={loading}
                   >
-                    {loading ? 'Enviando...' : 'Enviar Mensagem'}
+                    {loading ? t('contactForm.sending') : t('contactForm.send')}
                   </button>
-                  {success && <p className="text-green-400 mt-2 text-center">{success}</p>}
-                  {error && <p className="text-red-400 mt-2 text-center">{error}</p>}
+                  {success && <p className="text-green-400 mt-2 text-center">{t('successMsg')}</p>}
+                  {error && <p className="text-red-400 mt-2 text-center">{t('errorMsg')}</p>}
                 </form>
               </div>
             </div>
@@ -616,7 +687,7 @@ function App() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <p className="text-gray-400 text-sm">
-              © 2024 DevPortfolio. Todos os direitos reservados.
+              {t('footer')}
             </p>
             <button
               onClick={scrollToTop}
