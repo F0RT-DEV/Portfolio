@@ -434,15 +434,15 @@ function App() {
                   demo: '#'
                 },
                 {
-                  title: 'E-commerce Moderno',
-                  description: 'Plataforma de e-commerce completa com carrinho de compras, sistema de pagamento integrado e painel administrativo para gestão de produtos.',
-                  technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Responsivo', 'Node.js', 'Google Cloud'],
-                  image: '/projeto-ecommerce.png',
+                  title: 'Hub de Conversão Inteligente (AI SDR)',
+                  description: 'Pipeline de dados para triagem e qualificação automatizada de leads via n8n e IA.',
+                  technologies: ['React', 'Tailwind', 'n8n', 'OpenAI', 'Performance'],
+                  image: '/n8n+ia.png',
                   category: 'freelance',
                   type: '💼 Projeto Freelance',
                   client: 'Loja Virtual',
-                  github: '#',
-                  demo: '#'
+                  github: 'https://github.com/F0RT-DEV/LeadFlow-AI.git',
+                  demo: 'https://leadflowia.netlify.app/'
                 }
               ].map((project, index) => {
                 const categoryColors = {
@@ -485,7 +485,7 @@ function App() {
                         }}
                       />
                       
-                      {project.title === 'E-commerce Moderno' && (
+                      {project.title === 'Hub de Conversão Inteligente (AI SDR)' && (
                         <div className="absolute top-6 left-6 z-20">
                           <span className="bg-yellow-500/90 text-black font-bold px-4 py-2 rounded-full shadow-lg text-xs border-2 border-yellow-700 animate-pulse">EM DESENVOLVIMENTO</span>
                         </div>
