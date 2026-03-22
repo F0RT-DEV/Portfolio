@@ -30,9 +30,9 @@ function App() {
     pt: {
       nav: ['Home', 'Sobre', 'Projetos', 'Contato'],
       available: 'Disponível para projetos',
-      developer: 'Desenvolvedor Web',
-      heroLine1: 'Transformando ideias em código e designs em realidade',
-      heroLine2: 'Criando experiências digitais excepcionais com tecnologias modernas e design intuitivo',
+      developer: 'Desenvolvedor Full-Stack',
+      heroLine1: 'Desenvolvedor Full-Stack focado em performance de interfaces e automação de processos com IA.',
+      heroLine2: 'Especialista em transformar fluxos complexos em experiências intuitivas que geram conversão.',
       projectsCount: 'Projetos',
       dedication: 'Dedicação',
       viewProjects: 'Ver Projetos',
@@ -58,9 +58,9 @@ function App() {
     en: {
       nav: ['Home', 'About', 'Projects', 'Contact'],
       available: 'Available for projects',
-      developer: 'Web Developer',
-      heroLine1: 'Turning ideas into code and designs into reality',
-      heroLine2: 'Building exceptional digital experiences with modern technologies and intuitive design',
+      developer: 'Full-Stack Developer',
+      heroLine1: 'Full-Stack Developer focused on interface performance and AI process automation.',
+      heroLine2: 'Specialist in transforming complex flows into intuitive experiences that drive conversion.',
       projectsCount: 'Projects',
       dedication: 'Dedication',
       viewProjects: 'View Projects',
@@ -294,33 +294,16 @@ function App() {
                 {t('techTitle').split(' ').slice(0, -1).join(' ')} <span className="text-blue-500">{t('techTitle').split(' ').slice(-1)}</span>
               </h3>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
                 
                 <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105">
                   <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
                     <Globe size={20} />
-                    Frontend
+                    Frontend Core
                   </h4>
+                  <p className="text-sm text-gray-400 mb-4">(Foco na interface)</p>
                   <div className="flex flex-wrap gap-2">
-                    {['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'TailwindCSS', 'React'].map((tech) => (
-                      <span
-                        key={tech}
-                        className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                
-                <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                  <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
-                    <Palette size={20} />
-                    Design
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['Canvas', 'Figma', 'UI/UX', 'Layout Responsivo'].map((tech) => (
+                    {['React', 'JavaScript', 'Tailwind CSS', 'GSAP'].map((tech) => (
                       <span
                         key={tech}
                         className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300"
@@ -335,16 +318,30 @@ function App() {
                 <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105">
                   <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
                     <Code size={20} />
-                    Backend
+                    Backend & Automação
                   </h4>
+                  <p className="text-sm text-gray-400 mb-4">(Foco na inteligência e dados)</p>
                   <div className="flex flex-wrap gap-2">
-                    {['Node.js', 'Express.js', 'MySQL', 'Banco de Dados','Firebase'].map((tech) => (
-                      <span
-                        key={tech}
-                        className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300"
-                      >
-                        {tech}
-                      </span>
+                    {['Node.js', 'n8n', 'APIs de IA'].map((tech) => (
+                      tech === 'n8n' ? (
+                        <span
+                          key={tech}
+                          className="bg-purple-700 text-white px-3 py-1 rounded-md text-sm font-medium border-2 border-purple-400 shadow-lg shadow-purple-500/50 hover:bg-purple-600 transition-all duration-300 relative group"
+                          title="Especialista em Automação - Orquestração de Dados"
+                        >
+                          {tech}
+                          <span className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                            Especialista em Automação
+                          </span>
+                        </span>
+                      ) : (
+                        <span
+                          key={tech}
+                          className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300"
+                        >
+                          {tech}
+                        </span>
+                      )
                     ))}
                   </div>
                 </div>
@@ -352,29 +349,12 @@ function App() {
                 
                 <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105">
                   <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
-                    <ExternalLink size={20} />
-                    Integrações
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['API REST', 'JSON', 'Axios'].map((tech) => (
-                      <span
-                        key={tech}
-                        className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                
-                <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105 md:col-span-2 lg:col-span-1">
-                  <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
                     <Github size={20} />
-                    Deploy & Versionamento
+                    Ferramentas & Workflow
                   </h4>
+                  <p className="text-sm text-gray-400 mb-4">(Foco na organização)</p>
                   <div className="flex flex-wrap gap-2">
-                    {['Git', 'GitHub', 'Render', 'Netlify'].map((tech) => (
+                    {['Git', 'GitHub', 'Figma', 'Vercel'].map((tech) => (
                       <span
                         key={tech}
                         className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300"
@@ -435,7 +415,7 @@ function App() {
                 },
                 {
                   title: 'Hub de Conversão Inteligente (AI SDR)',
-                  description: 'Pipeline de dados para triagem e qualificação automatizada de leads via n8n e IA.',
+                  description: 'Pipeline de qualificação de leads que utiliza React no frontend e n8n + OpenAI no motor de decisão. O sistema analisa a intenção de compra em tempo real e prioriza o atendimento comercial via webhooks.',
                   technologies: ['React', 'Tailwind', 'n8n', 'OpenAI', 'Performance'],
                   image: '/n8n+ia.png',
                   category: 'freelance',
@@ -487,7 +467,7 @@ function App() {
                       
                       {project.title === 'Hub de Conversão Inteligente (AI SDR)' && (
                         <div className="absolute top-6 left-6 z-20">
-                          <span className="bg-yellow-500/90 text-black font-bold px-4 py-2 rounded-full shadow-lg text-xs border-2 border-yellow-700 animate-pulse">EM DESENVOLVIMENTO</span>
+                          <span className="bg-yellow-500/90 text-black font-bold px-4 py-2 rounded-full shadow-lg text-xs border-2 border-yellow-700 animate-pulse">Status: Finalizando Integração de Webhooks (n8n)</span>
                         </div>
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -522,12 +502,21 @@ function App() {
                         <p className="text-xs font-medium text-gray-400">Tecnologias:</p>
                         <div className="flex flex-wrap gap-1.5">
                           {project.technologies.map((tech) => (
-                            <span
-                              key={tech}
-                              className={`bg-gray-800/50 ${colors.accent} px-2 py-1 rounded-md text-xs font-medium border ${colors.border} hover:bg-gray-700/50 transition-colors duration-300`}
-                            >
-                              {tech}
-                            </span>
+                            tech === 'n8n' ? (
+                              <span
+                                key={tech}
+                                className="bg-slate-900 border border-purple-500/40 text-purple-400 font-mono text-[10px] px-2 py-1 shadow-[0_0_10px_rgba(147,51,234,0.2)] rounded-md"
+                              >
+                                {tech}
+                              </span>
+                            ) : (
+                              <span
+                                key={tech}
+                                className={`bg-gray-800/50 ${colors.accent} px-2 py-1 rounded-md text-xs font-medium border ${colors.border} hover:bg-gray-700/50 transition-colors duration-300`}
+                              >
+                                {tech}
+                              </span>
+                            )
                           ))}
                         </div>
                       </div>
