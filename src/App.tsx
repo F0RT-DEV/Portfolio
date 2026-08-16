@@ -455,13 +455,20 @@ function App() {
                     className={`bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 shadow-xl ${colors.shadow} border ${colors.border} ${colors.hoverBorder} hover:transform hover:scale-[1.02] group min-h-[500px]`}
                   >
                   
-                    <div className={`relative overflow-hidden rounded-t-2xl ${isSpaceInvaders ? 'h-[26.2rem]' : 'h-82'}`}>
+                    <div className={`relative overflow-hidden rounded-t-2xl ${isSpaceInvaders ? 'h-72 sm:h-[26.2rem]' : 'h-82'}`}>
+                      {isSpaceInvaders && (
+                        <div className="absolute left-3 top-3 z-10 flex items-center gap-2 rounded-full border border-yellow-400/60 bg-yellow-500/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-black shadow-lg sm:hidden">
+                          <Smartphone size={12} />
+                          <span>Apenas Desktop</span>
+                        </div>
+                      )}
+
                       <img
                         src={project.image}
                         alt={project.title}
                         className={
                           isSpaceInvaders
-                            ? 'w-full h-full object-cover transition-transform duration-500 scale-[1.22] group-hover:scale-[1.29]'
+                            ? 'w-full h-full object-cover bg-slate-950 transition-transform duration-500 scale-[1.12] sm:scale-[1.22] group-hover:scale-[1.18] sm:group-hover:scale-[1.29]'
                             : 'w-full h-full object-cover transition-transform duration-500 group-hover:scale-110'
                         }
                         onError={(e) => {
