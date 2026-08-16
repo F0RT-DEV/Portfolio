@@ -403,19 +403,19 @@ function App() {
                     demo: 'https://plataforma-ap.netlify.app/'
                 },
                 {
-                  title: 'Portfolio Interativo',
-                  description: 'Website responsivo de portfólio com animações suaves, design moderno e otimização para SEO. Desenvolvimento pessoal para apresentar projetos.',
-                  technologies: ['React', 'Tailwind CSS', 'Responsivo', 'TypeScript', 'Vite'],
-                  image: '/DesenvolvedorWeb.png',
+                  title: 'Space Invaders Retro',
+                  description: 'Recriação do clássico jogo arcade com renderização em tempo real, lógica de game loop, detecção de colisão 2D, controle de vidas, pontuação e níveis progressivos de dificuldade.',
+                  technologies: ['JavaScript', 'HTML5 Canvas', 'Game Loop', 'Colisão 2D', 'POO'],
+                  image: '/Space_Invaders.png',
                   category: 'pessoal',
                   type: '💡 Projeto Pessoal',
                   client: 'Desenvolvimento Próprio',
-                  github: 'https://github.com/F0RT-DEV/Portfolio.git',
-                  demo: '#'
+                  github: 'https://github.com/F0RT-DEV/SpaceInvader.git',
+                  demo: 'https://invasaoespacial.netlify.app/'
                 },
                 {
                   title: 'Hub de Conversão Inteligente (AI SDR)',
-                  description: 'Pipeline de qualificação de leads que utiliza React no frontend e n8n + OpenAI no motor de decisão. O sistema analisa a intenção de compra em tempo real e prioriza o atendimento comercial via webhooks.',
+                  description: 'Pipeline de qualificação de leads que utiliza React no frontend e n8n + OpenAI no motor de decisão. O sistema analisa a intenção de compra em tempo real e prioriza o atendimento comercial.',
                   technologies: ['React', 'Tailwind', 'n8n', 'OpenAI', 'Performance'],
                   image: '/n8n+ia.png',
                   category: 'freelance',
@@ -447,6 +447,7 @@ function App() {
                 };
 
                 const colors = categoryColors[project.category as keyof typeof categoryColors];
+                const isSpaceInvaders = project.title === 'Space Invaders Retro';
 
                 return (
                   <div
@@ -454,11 +455,15 @@ function App() {
                     className={`bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 shadow-xl ${colors.shadow} border ${colors.border} ${colors.hoverBorder} hover:transform hover:scale-[1.02] group min-h-[500px]`}
                   >
                   
-                    <div className="relative h-82 overflow-hidden rounded-t-2xl">
+                    <div className={`relative overflow-hidden rounded-t-2xl ${isSpaceInvaders ? 'h-[26.2rem]' : 'h-82'}`}>
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        className={
+                          isSpaceInvaders
+                            ? 'w-full h-full object-cover transition-transform duration-500 scale-[1.22] group-hover:scale-[1.29]'
+                            : 'w-full h-full object-cover transition-transform duration-500 group-hover:scale-110'
+                        }
                         onError={(e) => {
                           
                           (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600';
