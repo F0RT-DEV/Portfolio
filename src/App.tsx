@@ -1,6 +1,6 @@
 import emailjs from '@emailjs/browser';
 import { useState } from 'react';
-import { Menu, X, Github, Linkedin, ExternalLink, ArrowUp, Code, Palette, Smartphone, Globe } from 'lucide-react';
+import { Menu, X, Github, Linkedin, ExternalLink, ArrowUp, Code, BrainCircuit, Cpu, Globe, Smartphone } from 'lucide-react';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,8 +38,15 @@ function App() {
       viewProjects: 'Ver Projetos',
       contactMe: 'Entrar em Contato',
       aboutTitle: 'Sobre Mim',
-      aboutDesc1: 'Sou desenvolvedor web com foco em Front-end e conhecimentos em integração com back-end e banco de dados. Tenho experiência com criação de landing pages otimizadas, responsivas e voltadas para conversão, além de interfaces que proporcionam uma boa experiência para o usuário.',
-      aboutDesc2: 'Se você busca alguém comprometido com entregas de qualidade, que escuta bem suas necessidades e transforma ideias em soluções funcionais e bonitas, estou à disposição!',
+      aboutDesc1: 'Sou desenvolvedor Full-Stack com foco em automação de processos e integração de sistemas. Uno desenvolvimento de software, orquestração de fluxos com n8n e integração com APIs de Inteligência Artificial para transformar problemas reais de negócio em soluções eficientes — da interface ao processo automatizado por trás dela.',
+      aboutDesc2: 'Atualmente curso Ciência da Computação na FAESA, com formação técnica em Desenvolvimento Web Full-Stack pelo SENAI Vitória/ES. Também venho me aprofundando em automação industrial (IIoT) e sensoriamento inteligente.',
+      
+      aboutSkills: {
+        frontend: 'Frontend',
+        backend: 'Backend & Automação',
+        ai: 'Integração de APIs / IA',
+        iiot: 'IIoT'
+      },
       techTitle: 'Tecnologias que possuo Conhecimento',
       projectsTitle: 'Meus Projetos',
       contactTitle: 'Vamos Conversar?',
@@ -66,8 +73,14 @@ function App() {
       viewProjects: 'View Projects',
       contactMe: 'Get in Touch',
       aboutTitle: 'About Me',
-      aboutDesc1: "I'm a web developer focused on Front-end with knowledge in back-end integration and databases. I build responsive, conversion-oriented landing pages and user-friendly interfaces.",
-      aboutDesc2: 'If you are looking for someone committed to quality deliveries, who listens to your needs and turns ideas into functional and beautiful solutions, I am available!',
+      aboutDesc1: "I'm a Full-Stack developer focused on process automation and systems integration. I combine software development, workflow orchestration with n8n, and Artificial Intelligence APIs to turn real business problems into efficient solutions — from the interface to the automated process behind it.",
+      aboutDesc2: "I'm currently studying Computer Science at FAESA and hold a technical degree in Full-Stack Web Development from SENAI Vitória/ES. I'm also deepening my knowledge of industrial automation (IIoT) and intelligent sensing.",
+      aboutSkills: {
+        frontend: 'Frontend',
+        backend: 'Backend & Automation',
+        ai: 'API / AI Integration',
+        iiot: 'IIoT'
+      },
       techTitle: 'Technologies I Know',
       projectsTitle: 'My Projects',
       contactTitle: "Let's Talk?",
@@ -267,15 +280,14 @@ function App() {
                 </div> */}
                 
                 <p className="text-lg text-gray-300 mb-4 leading-relaxed">{t('aboutDesc1')}</p>
-                <p className="text-lg text-gray-300 mb-6 leading-relaxed">{t('aboutDesc2')}</p>
-                
+                <p className="text-lg text-gray-300 mb-4 leading-relaxed">{t('aboutDesc2')}</p>
                 
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { name: 'Frontend', icon: <Globe size={24} />, color: 'text-blue-400' },
-                    { name: 'Backend', icon: <Code size={24} />, color: 'text-green-400' },
-                    { name: 'Design', icon: <Palette size={24} />, color: 'text-purple-400' },
-                    { name: 'Mobile', icon: <Smartphone size={24} />, color: 'text-orange-400' }
+                    { name: t('aboutSkills.frontend'), icon: <Globe size={24} />, color: 'text-blue-400' },
+                    { name: t('aboutSkills.backend'), icon: <Code size={24} />, color: 'text-green-400' },
+                    { name: t('aboutSkills.ai'), icon: <BrainCircuit size={24} />, color: 'text-purple-400' },
+                    { name: t('aboutSkills.iiot'), icon: <Cpu size={24} />, color: 'text-orange-400' }
                   ].map((skill) => (
                     <div key={skill.name} className="bg-gray-800/50 p-4 rounded-xl text-center hover:bg-gray-700/50 transition-all duration-300 border border-gray-700/50 hover:border-gray-600">
                       <div className={`${skill.color} mb-2 flex justify-center`}>
@@ -381,15 +393,16 @@ function App() {
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
-                  title: 'Plataforma Didática para Curso Técnico',
-                  description: 'Front-end responsivo com foco em UX e algumas animações. Projeto desenvolvido para fins educacionais em parceria com professor de ADS.',
-                  technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Responsivo', 'Animações'],
-                  image: '/PlataformaDidatica.png',
-                  category: 'educacional',
-                  type: '📘 Uso Educacional',
-                  client: 'Professor de Análise e Desenvolvimento de Sistemas',
-                  github: 'https://github.com/F0RT-DEV/FindesProjeto.git',
-                  demo: 'https://plataforma-didatica.netlify.app/'
+                  title: 'Hub de Conversão Inteligente (AI SDR)',
+                  description: 'Landing page conceitual de um pipeline de qualificação de leads que combina React, n8n e OpenAI para analisar intenção de compra e priorizar o atendimento comercial.',
+                  technologies: ['React', 'Tailwind', 'n8n', 'OpenAI', 'Performance'],
+                  image: '/n8n+ia.png',
+                  category: 'pessoal',
+                  type: '💡 Projeto Pessoal (Conceito)',
+                  client: 'Estudo de caso / MVP',
+                  status: 'Status: Pausado (custo de infraestrutura)',
+                  github: 'https://github.com/F0RT-DEV/LeadFlow-AI.git',
+                  demo: 'https://leadflowia.netlify.app/'
                 },
                 {
                   title: 'Plataforma de Serviços Técnicos',
@@ -399,8 +412,8 @@ function App() {
                   category: 'educacional',
                   type: '📘 Uso Educacional',
                   client: 'Projeto de Finalização do Curso',
-                    github: 'https://github.com/F0RT-DEV/SistemaIntegrado.git',
-                    demo: 'https://plataforma-ap.netlify.app/'
+                  github: 'https://github.com/F0RT-DEV/SistemaIntegrado.git',
+                  demo: 'https://plataforma-ap.netlify.app/'
                 },
                 {
                   title: 'Space Invaders Retro',
@@ -414,16 +427,16 @@ function App() {
                   demo: 'https://invasaoespacial.netlify.app/'
                 },
                 {
-                  title: 'Hub de Conversão Inteligente (AI SDR)',
-                  description: 'Pipeline de qualificação de leads que utiliza React no frontend e n8n + OpenAI no motor de decisão. O sistema analisa a intenção de compra em tempo real e prioriza o atendimento comercial.',
-                  technologies: ['React', 'Tailwind', 'n8n', 'OpenAI', 'Performance'],
-                  image: '/n8n+ia.png',
-                  category: 'freelance',
-                  type: '💼 Projeto Freelance',
-                  client: 'Loja Virtual',
-                  github: 'https://github.com/F0RT-DEV/LeadFlow-AI.git',
-                  demo: 'https://leadflowia.netlify.app/'
-                }
+                  title: 'Plataforma Didática para Curso Técnico',
+                  description: 'Front-end responsivo com foco em UX e algumas animações. Projeto desenvolvido para fins educacionais em parceria com professor de ADS.',
+                  technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Responsivo', 'Animações'],
+                  image: '/PlataformaDidatica.png',
+                  category: 'educacional',
+                  type: '📘 Uso Educacional',
+                  client: 'Professor de Análise e Desenvolvimento de Sistemas',
+                  github: 'https://github.com/F0RT-DEV/FindesProjeto.git',
+                  demo: 'https://plataforma-didatica.netlify.app/'
+                },
               ].map((project, index) => {
                 const categoryColors = {
                   educacional: {
@@ -477,9 +490,9 @@ function App() {
                         }}
                       />
                       
-                      {project.title === 'Hub de Conversão Inteligente (AI SDR)' && (
-                        <div className="absolute top-6 left-6 z-20">
-                          <span className="bg-yellow-500/90 text-black font-bold px-4 py-2 rounded-full shadow-lg text-xs border-2 border-yellow-700 animate-pulse">Status: Finalizando Integração de Webhooks (n8n)</span>
+                      {project.status && (
+                        <div className="absolute bottom-4 left-4 z-20 max-w-[calc(100%-2rem)]">
+                          <span className="bg-yellow-500/90 text-black font-bold px-4 py-2 rounded-full shadow-lg text-xs border-2 border-yellow-700">{project.status}</span>
                         </div>
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
